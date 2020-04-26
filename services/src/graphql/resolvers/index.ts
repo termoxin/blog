@@ -1,11 +1,11 @@
-import Chef from "./Chef"
-import * as Query from "./Query"
-import * as Mutation from "./Mutation"
+import Chef from "./Chef";
+import * as Query from "./Query";
+import * as Mutation from "./Mutation";
 
 const resolvers = {
-  Chef,
-  Query,
-  Mutation
-}
+	Chef,
+	Query,
+	Mutation,
+};
 
-export default resolvers
+export default resolvers;

@@ -1,5 +1,4 @@
-
-import {Chef} from "#root/db/models";
+import { Chef } from "#root/db/models";
 
 const chefsResolver = () => Chef.findAll();
 
