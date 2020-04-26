@@ -2,6 +2,9 @@ import * as React from "react";
 import { useQuery, useMutation } from "react-apollo";
 import gql from "graphql-tag";
 
+import styles from "styles/Chefs.scss";
+import rootStyles from "styles/Root.scss";
+
 import AddRestaurant from "./AddRestaurant";
 import AddChef from "./AddChef";
 
@@ -80,12 +83,12 @@ const Chefs = () => {
 	if (loading) return <h1>Loading...</h1>;
 
 	return (
-		<div>
+		<div className={styles.container}>
 			{data &&
 				data.chefs.map(chef => {
 					return (
 						<div key={chef.id}>
-							<hr />
+							<div className={rootStyles.divider}></div>
 							<strong>{chef.name}</strong>
 							<ul>
 								{chef.restaurants.map(({ id, name }) => {

@@ -2,6 +2,8 @@ import * as React from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
+import styles from "styles/Root.scss";
+
 interface AddRestaurantProps {
 	onAddRestaurant: ({ name }: { name: string }) => Promise<void>;
 }
@@ -18,7 +20,9 @@ const AddRestaurant = ({ onAddRestaurant: pushAddRestaurant }: AddRestaurantProp
 	if (!isAdding) {
 		return (
 			<div>
-				<button onClick={() => setIsAdding(true)}>+ Add Restaurant</button>
+				<button className={styles.button} onClick={() => setIsAdding(true)}>
+					+ Add Restaurant
+				</button>
 			</div>
 		);
 	}
@@ -32,14 +36,8 @@ const AddRestaurant = ({ onAddRestaurant: pushAddRestaurant }: AddRestaurantProp
 	return (
 		<div>
 			<form onSubmit={onSubmit}>
-				<input
-					autoFocus
-					name="name"
-					type="text"
-					ref={register({ required: true })}
-					disabled={isSubmitting}
-				/>
-				<button disabled={isSubmitting || !isValid} type="submit">
+				<input name="name" type="text" ref={register({ required: true })} disabled={isSubmitting} />
+				<button className={styles.button} disabled={isSubmitting || !isValid} type="submit">
 					Add
 				</button>
 			</form>
