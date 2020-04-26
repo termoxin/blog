@@ -1,3 +1,3 @@
-import AddChef from "./AddChef"
+import AddChef from "./AddChef";
 
 export default AddChef;

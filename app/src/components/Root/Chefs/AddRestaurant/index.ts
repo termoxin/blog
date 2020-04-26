@@ -1,3 +1,3 @@
-import AddRestaurant from "./AddRestaurant"
+import AddRestaurant from "./AddRestaurant";
 
 export default AddRestaurant;
