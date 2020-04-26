@@ -14,7 +14,7 @@ docker run \
   -e MYSQL_USER=gsp-dev \
   -e MYSQL_PASSWORD=password \
   -e MYSQL_DATABASE=gsp \
-  -d mysql:5.7.20
+  -d mysql:5.7.29
 ```
 
-This will create a Docker instance called `gsp-db`, running MySQL v5.7.20, with the root password being `password`. It also creates a database called `gsp`, creates a user called `gsp-dev` (with password `password`), and assigns that user full permissions onto the `gsp` database.
+This will create a Docker instance called `gsp-db`, running MySQL v5.7.29, with the root password being `password`. It also creates a database called `gsp`, creates a user called `gsp-dev` (with password `password`), and assigns that user full permissions onto the `gsp` database.
