@@ -20,7 +20,10 @@ const AddRestaurant = ({ onAddRestaurant: pushAddRestaurant }: AddRestaurantProp
 	if (!isAdding) {
 		return (
 			<div>
-				<button className={styles.button} onClick={() => setIsAdding(true)}>
+				<button
+					className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+					onClick={() => setIsAdding(true)}
+				>
 					+ Add Restaurant
 				</button>
 			</div>
@@ -37,7 +40,11 @@ const AddRestaurant = ({ onAddRestaurant: pushAddRestaurant }: AddRestaurantProp
 		<div>
 			<form onSubmit={onSubmit}>
 				<input name="name" type="text" ref={register({ required: true })} disabled={isSubmitting} />
-				<button className={styles.button} disabled={isSubmitting || !isValid} type="submit">
+				<button
+					className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+					disabled={isSubmitting || !isValid}
+					type="submit"
+				>
 					Add
 				</button>
 			</form>
