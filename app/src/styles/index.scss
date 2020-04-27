@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 :global {
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
+
 	body {
 		font-size: 15px;
 		font-family: "Roboto", sans-serif;
