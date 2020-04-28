@@ -32,7 +32,7 @@ const AddRestaurant = ({ onAddRestaurant: pushAddRestaurant }: AddRestaurantProp
 	});
 
 	return (
-		<div>
+		<div className="mt-2">
 			<form onSubmit={onSubmit}>
 				<input
 					name="name"
