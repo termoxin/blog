@@ -2,8 +2,6 @@ import * as React from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-import styles from "styles/Root.scss";
-
 interface AddRestaurantProps {
 	onAddRestaurant: ({ name }: { name: string }) => Promise<void>;
 }
@@ -19,11 +17,8 @@ const AddRestaurant = ({ onAddRestaurant: pushAddRestaurant }: AddRestaurantProp
 
 	if (!isAdding) {
 		return (
-			<div>
-				<button
-					className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-					onClick={() => setIsAdding(true)}
-				>
+			<div className="mt-3">
+				<button className="btn-blue hover:bg-blue-700" onClick={() => setIsAdding(true)}>
 					+ Add Restaurant
 				</button>
 			</div>
@@ -39,9 +34,15 @@ const AddRestaurant = ({ onAddRestaurant: pushAddRestaurant }: AddRestaurantProp
 	return (
 		<div>
 			<form onSubmit={onSubmit}>
-				<input name="name" type="text" ref={register({ required: true })} disabled={isSubmitting} />
+				<input
+					name="name"
+					type="text"
+					className="input mr-2"
+					ref={register({ required: true })}
+					disabled={isSubmitting}
+				/>
 				<button
-					className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+					className="btn-blue hover:bg-blue-700 mr-4"
 					disabled={isSubmitting || !isValid}
 					type="submit"
 				>

@@ -2,12 +2,10 @@ import * as React from "react";
 
 import Chefs from "./Chefs";
 
-import styles from "styles/Root.scss";
-
 const Root = () => {
 	return (
-		<div>
-			<strong className={styles.heading}>Chefs and their Restaurants</strong>
+		<div className="container p-16">
+			<strong className="text-4xl">Chefs and their Restaurants</strong>
 			<Chefs />
 		</div>
 	);

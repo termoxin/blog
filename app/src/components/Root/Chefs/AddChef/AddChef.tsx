@@ -17,11 +17,8 @@ const AddChef = ({ onAddChef: pushChef }: AddRestaurantProps) => {
 
 	if (!isAdding) {
 		return (
-			<div>
-				<button
-					className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-					onClick={() => setIsAdding(true)}
-				>
+			<div className="self-end">
+				<button className="btn-blue hover:bg-blue-700 mt-2" onClick={() => setIsAdding(true)}>
 					+ Add Chef
 				</button>
 			</div>
@@ -35,11 +32,17 @@ const AddChef = ({ onAddChef: pushChef }: AddRestaurantProps) => {
 	});
 
 	return (
-		<div>
+		<div className="mt-2">
 			<form onSubmit={onSubmit}>
-				<input name="name" type="text" ref={register({ required: true })} disabled={isSubmitting} />
+				<input
+					name="name"
+					className="input mr-2"
+					type="text"
+					ref={register({ required: true })}
+					disabled={isSubmitting}
+				/>
 				<button
-					className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+					className="btn-blue hover:bg-blue-700"
 					disabled={isSubmitting || !isValid}
 					type="submit"
 				>
