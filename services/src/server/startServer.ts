@@ -4,10 +4,17 @@ import * as express from "express";
 import accessEnv from "#root/helpers/accessEnv";
 import resolvers from "#root/graphql/resolvers";
 import typeDefs from "#root/graphql/typeDefs";
+import context from "#root/graphql/context";
+import directives from "#root/graphql/directives";
 
 const PORT = accessEnv("PORT", 7000);
 
-const apolloServer = new ApolloServer({ resolvers, typeDefs });
+const apolloServer = new ApolloServer({
+	resolvers,
+	typeDefs,
+	context,
+	schemaDirectives: directives,
+});
 
 const app = express();
 
