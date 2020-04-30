@@ -1,13 +1,20 @@
 import * as React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Chefs from "./Chefs";
+import Chefs from "../../pages/Chefs";
+import Login from "../../pages/Login";
 
 const Root = () => {
 	return (
-		<div className="container p-16">
-			<strong className="text-4xl">Chefs and their Restaurants</strong>
-			<Chefs />
-		</div>
+		<Router>
+			<Switch>
+				<Route path="/chefs" component={Chefs} />
+				<Route path="/login" component={Login} />
+				<Route>
+					<h1>Not found</h1>
+				</Route>
+			</Switch>
+		</Router>
 	);
 };
 
