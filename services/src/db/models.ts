@@ -67,4 +67,33 @@ export class Restaurant extends Model<Restaurant> {
 	chef!: Chef;
 }
 
-export default [Chef, Restaurant];
+@Table({
+	defaultScope: {
+		attributes: { exclude: ["deletedAt"] },
+	},
+	paranoid: true,
+	tableName: "users",
+})
+export class User extends Model<User> {
+	@Column({
+		allowNull: false,
+		autoIncrement: true,
+		primaryKey: true,
+		type: DataType.INTEGER.UNSIGNED,
+	})
+	id!: string;
+
+	@Column({
+		allowNull: false,
+		type: DataType.STRING,
+	})
+	username!: string;
+
+	@Column({
+		allowNull: false,
+		type: DataType.STRING,
+	})
+	password!: string;
+}
+
+export default [Chef, Restaurant, User];
