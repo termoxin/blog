@@ -5,3 +5,36 @@
 .input {
 	@apply shadow appearance-none border rounded w-48 py-2 px-3 text-gray-700 leading-tight;
 }
+
+.button {
+	@apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+}
+
+.spinner {
+	position: relative;
+	pointer-events: none;
+}
+
+.spinner::after {
+	content: "";
+	position: absolute !important;
+	top: calc(50% - (1em / 2));
+	left: calc(50% - (1em / 2));
+	display: block;
+	width: 1em;
+	height: 1em;
+	border: 2px solid currentColor;
+	border-radius: 9999px;
+	border-right-color: transparent;
+	border-top-color: transparent;
+	animation: spinAround 500ms infinite linear;
+}
+
+@keyframes spinAround {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
