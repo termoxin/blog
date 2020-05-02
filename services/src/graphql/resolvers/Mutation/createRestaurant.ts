@@ -1,8 +1,14 @@
+import { Context } from "types";
 import { Restaurant } from "#root/db/models";
 
+interface CreateRestaurantArguments {
+	chefId: string;
+	name: string;
+}
+
 const createRestaurantResolver = (
-	context: any,
-	{ chefId, name }: { chefId: string; name: string }
+	context: Context,
+	{ chefId, name }: CreateRestaurantArguments
 ) => {
 	return Restaurant.create({ chefId, name });
 };

@@ -1,5 +1,9 @@
 import { Chef } from "#root/db/models";
 
-const createChefResolver = (context: any, { name }: { name: string }) => Chef.create({ name });
+interface CreateChefArguments {
+	name: string;
+}
+
+const createChefResolver = (context: any, { name }: CreateChefArguments) => Chef.create({ name });
 
 export default createChefResolver;

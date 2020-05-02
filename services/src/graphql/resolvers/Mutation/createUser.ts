@@ -1,13 +1,19 @@
 import { ForbiddenError } from "apollo-server";
 import * as bcrypt from "bcrypt";
 
+import { Context } from "types";
 import { User } from "#root/db/models";
 
 const BCRYPT_ROUNDS = 12;
 
+interface CreateUserArguments {
+	username: string;
+	password: string;
+}
+
 const createUserResolver = async (
-	context: any,
-	{ username, password }: { username: string; password: string }
+	context: Context,
+	{ username, password }: CreateUserArguments
 ) => {
 	const user = await User.findOne({ where: { username } });
 
