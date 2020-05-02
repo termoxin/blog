@@ -8,11 +8,6 @@ import { Alert } from "../components/Alert";
 import { Button } from "../components/Button";
 import { Input } from "../components/Input";
 
-interface OnSubmitData {
-	username: string;
-	password: string;
-}
-
 const LoginPage = () => {
 	const { register, handleSubmit, errors, getValues } = useForm();
 
@@ -32,6 +27,7 @@ const LoginPage = () => {
 
 	return (
 		<div className="flex flex-col justify-center items-center h-screen">
+			<h1 className="heading">Sign in</h1>
 			{error && <Alert message={error?.graphQLErrors[0].message} />}
 			<div className="w-full max-w-xs">
 				<form
@@ -65,6 +61,9 @@ const LoginPage = () => {
 					<div className="flex items-center justify-between">
 						<Button loading={called && loading} type="submit">
 							Sign In
+						</Button>
+						<Button loading={called && loading} type="submit">
+							Switch to sign up
 						</Button>
 					</div>
 				</form>
