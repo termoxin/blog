@@ -27,7 +27,7 @@ const LoginPage = () => {
 
 	return (
 		<div className="flex flex-col justify-center items-center h-screen">
-			<h1 className="heading">Sign in</h1>
+			<h1 className="heading font-bold">Sign in</h1>
 			{error && <Alert message={error?.graphQLErrors[0].message} />}
 			<div className="w-full max-w-xs">
 				<form
