@@ -2,7 +2,7 @@ import * as React from "react";
 import { ButtonRef } from "declarations";
 
 interface Props extends React.HTMLAttributes<HTMLButtonElement> {
-	type: "button" | "reset" | "submit";
+	type?: "button" | "reset" | "submit";
 	loading?: boolean;
 	children: React.ReactNode;
 }
