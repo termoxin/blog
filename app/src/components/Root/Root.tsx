@@ -1,9 +1,10 @@
 import * as React from "react";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
+import { PrivateRoute } from "../PrivateRoute";
 import Chefs from "../../pages/Chefs";
 import Auth from "../../pages/Auth";
-import { PrivateRoute } from "../PrivateRoute";
+import Profile from "../../pages/Profile";
 
 const Root = () => {
 	return (
@@ -13,6 +14,9 @@ const Root = () => {
 					<Chefs />
 				</PrivateRoute>
 				<Route path="/auth" component={Auth} />
+				<PrivateRoute path="/profile">
+					<Profile />
+				</PrivateRoute>
 				<Route>
 					<h1>Not found</h1>
 				</Route>
