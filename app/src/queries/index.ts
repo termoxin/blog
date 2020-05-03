@@ -16,4 +16,13 @@ const LOGIN_USER = gql`
 	}
 `;
 
-export { GET_CURRENT_USER, LOGIN_USER };
+const CREATE_USER = gql`
+	mutation($username: String!, $password: String!) {
+		createUser(username: $username, password: $password) {
+			username
+			password
+		}
+	}
+`;
+
+export { GET_CURRENT_USER, LOGIN_USER, CREATE_USER };
