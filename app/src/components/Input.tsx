@@ -6,10 +6,13 @@ interface Props extends React.HTMLAttributes<HTMLInputElement> {
 	errorMessage?: React.ReactNode;
 	labelText?: string;
 	id?: string;
+	type?: string;
+	ref?: any;
+	name?: string;
 }
 
-export const Input = React.forwardRef(
-	({ error, errorMessage, id, labelText, ...props }: Props, ref: InputRef) => (
+export const Input: React.FC<Props> = React.forwardRef(
+	({ error, errorMessage, id, type, labelText, ...props }: Props, ref?: InputRef) => (
 		<>
 			<label className="block text-gray-700 text-sm font-bold mb-2" htmlFor={id}>
 				{labelText}
@@ -20,6 +23,7 @@ export const Input = React.forwardRef(
 				} w-full py-2 px-3 mb-3 focus:outline-none focus:shadow-outline`}
 				ref={ref}
 				id={id}
+				type={type}
 				name={name}
 				{...props}
 			/>
