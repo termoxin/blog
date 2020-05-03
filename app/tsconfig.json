@@ -6,8 +6,17 @@
 		"module": "commonjs",
 		"strict": true,
 		"target": "es6",
+		"esModuleInterop": true,
 		"paths": {
 			"styles/*": ["./styles/*"]
-		}
-	}
+		},
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noImplicitReturns": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true
+	},
+	"include": ["src"],
+	"exclude": ["node_modules"]
 }
