@@ -5,12 +5,17 @@ import { useQuery } from "react-apollo";
 import { GET_CURRENT_USER } from "../queries";
 
 interface Props {
-	children: React.ReactNode;
+	children: React.ReactElement;
 	path: string;
 }
 
 export const PrivateRoute = ({ children, path, ...rest }: Props) => {
-	const { data, loading } = useQuery(GET_CURRENT_USER);
+	const { data, loading, client } = useQuery(GET_CURRENT_USER);
+
+	const logout = () => {
+		window.localStorage.clear();
+		client.resetStore();
+	};
 
 	if (loading) {
 		return <h1>Loading...</h1>;
@@ -22,7 +27,7 @@ export const PrivateRoute = ({ children, path, ...rest }: Props) => {
 			path={path}
 			render={({ location }) =>
 				data ? (
-					children
+					React.cloneElement(children, { auth: data, logout })
 				) : (
 					<Redirect
 						to={{
