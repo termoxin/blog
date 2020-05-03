@@ -13,3 +13,11 @@ type InputRef =
 	| RefObject<HTMLInputElement>
 	| null
 	| undefined;
+
+interface CurrentUser {
+	username: string;
+}
+
+interface AuthenticationData {
+	currentUser: CurrentUser;
+}
