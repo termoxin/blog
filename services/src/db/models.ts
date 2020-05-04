@@ -6,6 +6,7 @@ import {
 	HasMany,
 	ForeignKey,
 	BelongsTo,
+	BelongsToMany,
 } from "sequelize-typescript";
 
 @Table({
@@ -96,4 +97,33 @@ export class User extends Model<User> {
 	password!: string;
 }
 
-export default [Chef, Restaurant, User];
+@Table
+export class Article extends Model<Article> {
+	@Column
+	title!: string;
+
+	@BelongsToMany(() => Tag, () => ArticleTag)
+	tags!: Tag[];
+}
+
+@Table
+export class Tag extends Model<Tag> {
+	@Column
+	tagName!: string;
+
+	@BelongsToMany(() => Article, () => ArticleTag)
+	articles!: Article[];
+}
+
+@Table
+export class ArticleTag extends Model<ArticleTag> {
+	@ForeignKey(() => Article)
+	@Column
+	articleId!: number;
+
+	@ForeignKey(() => Tag)
+	@Column
+	tagId!: number;
+}
+
+export default [Chef, Restaurant, User, Article, Tag, ArticleTag];
