@@ -97,7 +97,13 @@ export class User extends Model<User> {
 	password!: string;
 }
 
-@Table
+@Table({
+	defaultScope: {
+		attributes: { exclude: ["deletedAt"] },
+	},
+	paranoid: true,
+	tableName: "articles",
+})
 export class Article extends Model<Article> {
 	@Column
 	title!: string;
@@ -106,7 +112,13 @@ export class Article extends Model<Article> {
 	tags!: Tag[];
 }
 
-@Table
+@Table({
+	defaultScope: {
+		attributes: { exclude: ["deletedAt"] },
+	},
+	paranoid: true,
+	tableName: "tags",
+})
 export class Tag extends Model<Tag> {
 	@Column
 	tagName!: string;
@@ -115,7 +127,9 @@ export class Tag extends Model<Tag> {
 	articles!: Article[];
 }
 
-@Table
+@Table({
+	tableName: "articleTags",
+})
 export class ArticleTag extends Model<ArticleTag> {
 	@ForeignKey(() => Article)
 	@Column
