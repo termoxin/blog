@@ -38,14 +38,19 @@ const typeDefs = gql`
 	type Article {
 		id: ID!
 		title: String!
+		text: String!
 		tags: [Tag!]!
+	}
+
+	input CreateArticleOptions {
+		tagName: String!
 	}
 
 	type Mutation {
 		createChef(name: String!): Chef!
 		createRestaurant(chefId: ID!, name: String!): Restaurant!
 		createUser(username: String!, password: String!): User
-		createArticle(title: String!): Article
+		createArticle(title: String!, text: String!, tags: [CreateArticleOptions]): Article
 	}
 
 	type Query {
@@ -53,6 +58,7 @@ const typeDefs = gql`
 		currentUser: User @isAuthenticated
 		users: [User] @isAuthenticated
 		articles: [Article]
+		article(id: String!): Article
 		loginUser(username: String!, password: String!): Token
 	}
 `;
