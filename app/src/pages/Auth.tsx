@@ -53,6 +53,7 @@ const LoginPage = () => {
 	const isLoading = (calledLogin && loadingLogin) || (calledCreateUser && loadingCreateUser);
 
 	const switchButtonText = isCreateUser ? "Switch to sign in" : "Switch to sign up";
+	const submitButtonText = isCreateUser ? "Sign up" : "Sign in";
 
 	return (
 		<div className="flex flex-col justify-center items-center h-screen">
@@ -89,7 +90,7 @@ const LoginPage = () => {
 					</div>
 					<div className="flex items-center justify-between">
 						<Button loading={isLoading} type="submit">
-							Sign In
+							{submitButtonText}
 						</Button>
 						<Button onClick={toggleAutenticationMode} loading={isLoading} type="button">
 							{switchButtonText}
