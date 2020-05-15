@@ -42,6 +42,12 @@ const typeDefs = gql`
 		tags: [Tag!]!
 	}
 
+	type File {
+		filename: String!
+		mimetype: String!
+		encoding: String!
+	}
+
 	input CreateArticleOptions {
 		tagName: String!
 	}
@@ -51,6 +57,8 @@ const typeDefs = gql`
 		createRestaurant(chefId: ID!, name: String!): Restaurant!
 		createUser(username: String!, password: String!): User
 		createArticle(title: String!, text: String!, tags: [CreateArticleOptions]): Article
+		uploadArticle(file: Upload!): File!
+		attachTag(articleId: ID!, tagName: String!): Tag!
 	}
 
 	type Query {
