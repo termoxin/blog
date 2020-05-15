@@ -1,20 +1,30 @@
 import * as React from "react";
+import { useQuery } from "react-apollo";
 
-import { AuthenticationData } from "declarations";
-interface Props {
-	auth?: AuthenticationData;
-	logout?: () => void;
+import { GET_ARTICLES } from "../queries";
+import { Navigation } from "../components/Navigation";
+import { Article as BlogPost } from "../components/Article";
+import { Article } from "declarations";
+
+interface QueryData {
+	articles: Article[];
 }
 
-const Profile = ({ auth, logout }: Props) => {
+const Profile = () => {
+	const { data, loading } = useQuery<QueryData>(GET_ARTICLES);
+
+	if (loading) {
+		return <h1>Loading...</h1>;
+	}
+
 	return (
 		<div className="h-screen">
-			<div className="flex justify-center items-center">
-				<h1 className="heading">Profile</h1>
-				<p className="ml-5">{auth?.currentUser.username}</p>
-				<button className="button ml-5" onClick={logout}>
-					Logout
-				</button>
+			<Navigation />
+			<div className="flex flex-wrap pt-4">
+				{data &&
+					data.articles.map(({ id, tags, title }) => (
+						<BlogPost id={id} key={id} title={title} tags={tags} />
+					))}
 			</div>
 		</div>
 	);
