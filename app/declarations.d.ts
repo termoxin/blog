@@ -21,3 +21,17 @@ interface CurrentUser {
 interface AuthenticationData {
 	currentUser: CurrentUser;
 }
+
+interface Tag {
+	id: string;
+	tagName: string;
+}
+
+interface Article {
+	id: string;
+	text: string;
+	title: string;
+	tags: Tag[];
+}
+
+declare module "*.md";
