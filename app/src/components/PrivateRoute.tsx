@@ -6,6 +6,7 @@ import { GET_CURRENT_USER } from "../queries";
 
 interface Props {
 	children: React.ReactElement;
+	exact?: boolean;
 	path: string;
 }
 
