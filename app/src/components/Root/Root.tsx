@@ -5,6 +5,8 @@ import { PrivateRoute } from "../PrivateRoute";
 import Chefs from "../../pages/Chefs";
 import Auth from "../../pages/Auth";
 import Profile from "../../pages/Profile";
+import { BlogPost } from "../../pages/BlogPost";
+import { UploadArticle } from "../../pages/UploadArticle";
 
 const Root = () => {
 	return (
@@ -14,8 +16,12 @@ const Root = () => {
 					<Chefs />
 				</PrivateRoute>
 				<Route path="/auth" component={Auth} />
-				<PrivateRoute path="/profile">
+				<Route path="/article/:id" component={BlogPost} />
+				<PrivateRoute exact path="/">
 					<Profile />
+				</PrivateRoute>
+				<PrivateRoute path="/upload">
+					<UploadArticle />
 				</PrivateRoute>
 				<Route>
 					<h1>Not found</h1>
