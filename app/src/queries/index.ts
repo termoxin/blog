@@ -25,4 +25,57 @@ const CREATE_USER = gql`
 	}
 `;
 
-export { GET_CURRENT_USER, LOGIN_USER, CREATE_USER };
+const GET_ARTICLES = gql`
+	{
+		articles {
+			id
+			title
+			text
+			tags {
+				id
+				tagName
+			}
+		}
+	}
+`;
+
+const GET_ARTICLE = gql`
+	query getArticle($id: String!) {
+		article(id: $id) {
+			id
+			title
+			text
+			tags {
+				id
+				tagName
+			}
+		}
+	}
+`;
+
+const UPLOAD_ARTICLE = gql`
+	mutation uploadArticle($file: Upload!) {
+		uploadArticle(file: $file) {
+			filename
+		}
+	}
+`;
+
+const ATTACH_TAG = gql`
+	mutation attachTag($articleId: ID!, $tagName: String!) {
+		attachTag(articleId: $articleId, tagName: $tagName) {
+			id
+			tagName
+		}
+	}
+`;
+
+export {
+	GET_CURRENT_USER,
+	LOGIN_USER,
+	CREATE_USER,
+	GET_ARTICLES,
+	GET_ARTICLE,
+	UPLOAD_ARTICLE,
+	ATTACH_TAG
+};
