@@ -1,11 +1,69 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lora|Roboto&display=swap");
 @import "./components.scss";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+html {
+	font-family: "Roboto", sans-serif !important;
+}
+
 body {
-	font-size: 15px;
-	font-family: "Roboto", sans-serif;
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-bold mt-16;
+		font-family: "Lora", serif !important;
+	}
+
+	h1 {
+		@apply text-5xl;
+	}
+
+	h2 {
+		@apply text-4xl;
+	}
+
+	h3 {
+		@apply text-3xl;
+	}
+
+	h4 {
+		@apply text-2xl;
+	}
+
+	p {
+		@apply text-lg mt-12;
+		line-height: 30px;
+	}
+
+	a {
+		@apply underline;
+	}
+
+	ul {
+		@apply list-inside;
+	}
+
+	li {
+		text-rendering: optimizeLegibility;
+		-webkit-font-smoothing: antialiased;
+		word-break: break-word;
+		box-sizing: inherit;
+		font-weight: 400;
+		color: rgba(0, 0, 0, 0.84);
+		font-style: normal;
+		margin-bottom: -0.46em;
+		letter-spacing: -0.003em;
+		list-style-type: disc;
+		margin-left: 30px;
+		padding-left: 0px;
+		font-size: 21px;
+		margin-top: 1rem;
+		line-height: 32px;
+	}
 }
