@@ -108,6 +108,9 @@ export class Article extends Model<Article> {
 	@Column
 	title!: string;
 
+	@Column
+	text!: string;
+
 	@BelongsToMany(() => Tag, () => ArticleTag)
 	tags!: Tag[];
 }
