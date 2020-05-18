@@ -32,6 +32,7 @@ interface Article {
 	text: string;
 	title: string;
 	tags: Tag[];
+	createdAt: string;
 }
 
 declare module "*.md";
