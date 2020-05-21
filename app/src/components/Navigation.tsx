@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import { Logo } from "./Logo";
 
 export const Navigation = () => (
@@ -9,25 +11,31 @@ export const Navigation = () => (
 		</div>
 		<div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
 			<div className="text-sm lg:flex-grow">
-				<a
+				<Link
+					to="/"
 					href="#"
 					className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-200 mr-4"
 				>
 					Home
-				</a>
-				<a
+				</Link>
+				<Link
+					to="/projects"
 					href="#"
 					className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-200 mr-4"
 				>
 					Projects
-				</a>
-				<a href="#" className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-200">
-					Blog
-				</a>
+				</Link>
+				<Link
+					to="/upload"
+					href="#"
+					className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-200"
+				>
+					Upload article
+				</Link>
 			</div>
 			<div>
 				<a
-					href="#"
+					href="/subscribe"
 					className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
 				>
 					Subscribe
