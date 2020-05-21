@@ -45,6 +45,7 @@ const GET_ARTICLE = gql`
 			id
 			title
 			text
+			createdAt
 			tags {
 				id
 				tagName
