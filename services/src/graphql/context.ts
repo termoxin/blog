@@ -5,7 +5,6 @@ import { Context, JwtData } from "types";
 
 const context = ({ req: { headers } }: Context) => {
 	let token = headers.authorization ? headers.authorization.split(" ")[1] : null;
-
 	if (token) {
 		try {
 			const verifiedToken = jwt.verify(token, process.env.JWT_SECRET ?? "secret") as JwtData;
