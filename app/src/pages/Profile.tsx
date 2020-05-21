@@ -11,7 +11,11 @@ interface QueryData {
 }
 
 const Profile = () => {
-	const { data, loading } = useQuery<QueryData>(GET_ARTICLES);
+	const { data, loading, refetch } = useQuery<QueryData>(GET_ARTICLES);
+
+	React.useEffect(() => {
+		refetch();
+	}, []);
 
 	if (loading) {
 		return <h1>Loading...</h1>;
