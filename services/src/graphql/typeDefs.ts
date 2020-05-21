@@ -40,6 +40,7 @@ const typeDefs = gql`
 		title: String!
 		text: String!
 		tags: [Tag!]!
+		createdAt: String!
 	}
 
 	type File {
