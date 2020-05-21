@@ -12,7 +12,7 @@ interface Props {
 
 export const Article: React.FC<Props> = ({ id, title, tags }) => (
 	<div className="flex justify-center w-full sm:w-1/1 md:w-1/2 lg:w-1/2 xl:w-1/3 mb-4">
-		<div className="max-w-sm rounded overflow-hidden shadow-lg">
+		<div className="flex flex-col max-w-sm rounded justify-between overflow-hidden shadow-lg">
 			<img
 				className="w-full h-56"
 				src="https://images.unsplash.com/photo-1589002771256-0f0640d202de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2775&q=80"
