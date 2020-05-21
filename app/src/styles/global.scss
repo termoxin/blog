@@ -50,6 +50,7 @@ body {
 	}
 
 	li {
+		@apply text-lg;
 		text-rendering: optimizeLegibility;
 		-webkit-font-smoothing: antialiased;
 		word-break: break-word;
@@ -62,8 +63,11 @@ body {
 		list-style-type: disc;
 		margin-left: 30px;
 		padding-left: 0px;
-		font-size: 21px;
 		margin-top: 1rem;
 		line-height: 32px;
+	}
+
+	time {
+		@apply text-sm text-gray-500;
 	}
 }
